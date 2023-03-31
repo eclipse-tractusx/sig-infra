@@ -1,11 +1,11 @@
-name: inform system-team about support issues
+name: inform sig-infra team about support issues
 on:
   issues:
     types:
       - opened
       - labeled
 jobs:
-  add-comment-to-inform-system-team:
+  add-issue-comment-to-inform-sig-infra:
     # based on the issue label write a comment to inform team
     if: github.event.label.name == 'support'
     runs-on: ubuntu-latest
@@ -16,6 +16,6 @@ jobs:
         uses: peter-evans/create-or-update-comment@v2.1.1
         with:
           issue-number: ${{ github.event.issue.number }}
-          # Here you can add you personal style of comment messages and which gh-team should be informed
+          # Here you can add you personal style of comment messages and which GitHub-team should be informed
           body: |
             Info: :wave: Hi @catenax-ng/argocdadmins, we got a new support issue on the [board](https://github.com/orgs/eclipse-tractusx/projects/9/views/1) and it is available for anyone to work on. Make sure to reference this issue in your pull request. Thank you for your contribution! 
