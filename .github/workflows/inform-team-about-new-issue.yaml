@@ -17,7 +17,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #########################################################################################
 
-name: inform sig-infra / security-team about support issues
+name: auto responder to sig-infra or security issues
 on:
   issues:
     types:
