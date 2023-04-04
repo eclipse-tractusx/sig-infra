@@ -17,14 +17,14 @@
 # SPDX-License-Identifier: Apache-2.0
 #########################################################################################
 
-name: inform sig-infra team about support issues
+name: auto responder to sig-infra or security issues
 on:
   issues:
     types:
       - opened
       - labeled
 jobs:
-  add-issue-comment-to-inform-sig-infra:
+  add-issue-comment-to-support-issue:
     # based on the issue label write a comment to inform team
     if: github.event.label.name == 'support'
     runs-on: ubuntu-latest
@@ -42,3 +42,22 @@ jobs:
             thanks for raising an issue to our System Team Support we will work on it and
             we will keep you up-to-date over this issue and feel free to communicate with us.
             One of our System Team will have a look at your issue and try to help you.
+
+  add-issue-comment-to-security-issue:
+    # based on the issue label write a comment to inform team
+    if: github.event.label.name == 'security'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Add comment
+        # MIT Licence from https://github.com/peter-evans/create-or-update-comment/blob/main/LICENSE
+        uses: peter-evans/create-or-update-comment@v2.1.1
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          # Here you can add you personal style of comment messages
+          body: |
+            Hello @${{ github.event.issue.user.login }} :wave:,
+            thanks for raising an issue to our Security Support and
+            we will keep you up-to-date over this issue and feel free to communicate with us.
+            One of our Security Team will have a look at your issue and try to help you.
