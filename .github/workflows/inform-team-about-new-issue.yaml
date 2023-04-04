@@ -24,7 +24,7 @@ on:
       - opened
       - labeled
 jobs:
-  add-issue-comment-to-inform-sig-infra:
+  add-issue-comment-to-support-issue:
     # based on the issue label write a comment to inform team
     if: github.event.label.name == 'support'
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
             we will keep you up-to-date over this issue and feel free to communicate with us.
             One of our System Team will have a look at your issue and try to help you.
 
-  add-issue-comment-to-inform-security:
+  add-issue-comment-to-security-issue:
     # based on the issue label write a comment to inform team
     if: github.event.label.name == 'security'
     runs-on: ubuntu-latest
