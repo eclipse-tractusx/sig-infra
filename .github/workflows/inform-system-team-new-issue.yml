@@ -18,4 +18,12 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           # Here you can add you personal style of comment messages and which GitHub-team should be informed
           body: |
-            Info: :wave: Hi @catenax-ng/argocdadmins, we got a new support issue on the [board](https://github.com/orgs/eclipse-tractusx/projects/9/views/1) and it is available for anyone to work on. Make sure to reference this issue in your pull request. Thank you for your contribution! 
+            Hello @${{ github.event.issue.user.login }} :wave:,
+            thanks for raising an issue to our System Team Support we will work on it and
+            we will keep you up-to-date over this issue and feel free to communicate with us.
+            One of our System Team will have a look at your issue and try to help you.
+            
+            Info to System-Team:
+            @SebastianBezold @carslen @almadigabor @hzierer @FaGru3n @Siegfriedk
+            > This support issue is available for anyone to work on. Please make sure to reference this issue in your pull request.
+            > Thank you for your contribution! :sparkles:
