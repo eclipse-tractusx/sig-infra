@@ -7,14 +7,16 @@ assignees: 'the-tatanka'
 
 ---
 
+Please report **undisclosed** or **confidential** vulnerabilities here: https://www.eclipse.org/security/
+
 **Topics (Please mark an [x] to your Topic):**
 - [ ] KICS
 - [ ] Invicti
-- [ ] Gitguardian
+- [ ] GitGuardian
 - [ ] Pentesting
-- [ ] Security risk assessment (RRA, Threat modeling, Code reviews)
-- [ ] Trivvy
+- [ ] Security assessment (threat modeling, code reviews)
+- [ ] Trivy
 - [ ] Veracode (initial setup, GitHub integration)
 - [ ] Other
 
-**Please describe your of request:**
+**Please describe your request:**
