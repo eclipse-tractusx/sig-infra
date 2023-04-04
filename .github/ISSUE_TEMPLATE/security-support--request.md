@@ -1,9 +1,9 @@
 ---
-name: 'Security Support:'
+name: 'Security General Request'
 about: If you have a Security Request
 title: ''
 labels: security
-assignees: ''
+assignees: 'the-tatanka'
 
 ---
 
