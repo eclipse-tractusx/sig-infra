@@ -7,13 +7,14 @@ assignees: 'the-tatanka'
 
 ---
 
-**Please specify the type of request. Exemplary requests are:**
+**Topics (Please mark an [x] to your Topic):**
+- [ ] KICS
+- [ ] Invicti
+- [ ] Gitguardian
+- [ ] Pentesting
+- [ ] Security risk assessment (RRA, Threat modeling, Code reviews)
+- [ ] Trivvy
+- [ ] Veracode (initial setup, GitHub integration)
+- [ ] Other
 
-**Tooling:**   
-
-* Veracode (initial setup, GitHub integration)
-* Trivvy
-* KICS
-* Gitguardian
-* Pen-testing
-* Security risk assessment (RRA, Threat modeling, Code reviews)
+**Please describe your of request:**
