@@ -1,5 +1,5 @@
 ---
-name: 'Support: Invite member to GitHub Org'
+name: 'Support: Invite member to consortium GitHub organization'
 about: If you need to invite a new Member within Catena-X NG
 title: 'GitHub: Invite member '
 labels: support

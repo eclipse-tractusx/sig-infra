@@ -1,5 +1,5 @@
 ---
-name: 'Support: Create a New Environment'
+name: 'Support: Create new consortium demo environment'
 about: If you need a hole new Environment for a good reason
 title: 'New Environment '
 labels: support

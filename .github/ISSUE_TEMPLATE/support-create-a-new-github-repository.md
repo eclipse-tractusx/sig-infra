@@ -1,5 +1,5 @@
 ---
-name: 'Support: Create a new GitHub repository'
+name: 'Support: Create a new GitHub repository in the consortium GitHub organisation'
 about: If you need a new repository within Catena-X NG
 title: 'GitHub: New repository '
 labels: support
