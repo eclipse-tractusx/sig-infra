@@ -3,7 +3,7 @@ name: 'Security General Request'
 about: If you have a Security Request
 title: ''
 labels: security
-assignees: 'the-tatanka'
+assignees: 'the-tatanka, BANANAS1337'
 
 ---
 
