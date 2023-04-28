@@ -1,6 +1,6 @@
 ---
 name: 'Support: Onboard a new product in the consortium GitHub organisation'
-about: If you need a complete new product within Catena-X NG
+about: If you need a complete new product within [Catena-X NG](https://github.com/catenax-ng)
 title: 'New Product '
 labels: support
 assignees: ''
