@@ -1,6 +1,6 @@
 ---
 name: 'Support: Create a new GitHub repository in the consortium GitHub organisation'
-about: If you need a new repository within Catena-X NG
+about: If you need a new repository within [Catena-X NG](https://github.com/catenax-ng)
 title: 'GitHub: New repository '
 labels: support
 assignees: ''

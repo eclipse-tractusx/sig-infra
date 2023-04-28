@@ -1,6 +1,6 @@
 ---
 name: 'Support: Invite member to consortium GitHub organization'
-about: If you need to invite a new Member within Catena-X NG
+about: If you need to invite a new Member within [Catena-X NG](https://github.com/catenax-ng)
 title: 'GitHub: Invite member '
 labels: support
 assignees: ''
