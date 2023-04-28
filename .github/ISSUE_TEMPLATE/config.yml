@@ -1,13 +1,7 @@
 blank_issues_enabled: false
 contact_links:
-  - name: CoP DevSecOpS
-    url: https://teams.microsoft.com/l/channel/19%3a9a3c4a05a3514d07b973c13e7b468709%40thread.tacv2/CX%2520-%2520CoP%2520DevSecOps?groupId=17b1a2dc-67fb-4a49-a2ed-dd1344321439&tenantId=1ad22c6d-2f08-4f05-a0ba-e17f6ce88380
-    about: MS Teams Channel for reaching us and questions
-  - name: DevSecOpS Office Hour
-    url: https://teams.microsoft.com/dl/launcher/launcher.html?url=%2F_%23%2Fl%2Fmeetup-join%2F19%3Ameeting_NTQxZjkzNTQtYTc4MC00NzQ3LWE2N2YtMzQ5YzMyM2E1MzMw%40thread.v2%2F0%3Fcontext%3D%257b%2522Tid%2522%253a%25221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%2522%252c%2522Oid%2522%253a%2522b5c9fbd2-2a5d-4335-a2d3-9f8aa0e12965%2522%257d%26anon%3Dtrue&type=meetup-join&deeplinkId=22421cb4-ca2a-479c-8bf1-3017c40bff7d&directDl=true&msLaunch=true&enableMobilePage=true&suppressPrompt=true
-    about: MS Teams Channel for our Weekly Communication
-  - name: Miro Board Office Hour
-    url: https://miro.com/app/board/uXjVOEDsHAI=/
-    about: MS Teams Channel for our Weekly Communication
+  - name: Eclipse Matrix Communication Channels
+    url: https://chat.eclipse.org/#/room/#tools.tractus-x:matrix.eclipse.org
+    about: Committer Channel from Eclipse
 
 
