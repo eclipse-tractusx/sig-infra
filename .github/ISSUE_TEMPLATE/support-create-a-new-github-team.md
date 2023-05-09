@@ -7,10 +7,11 @@ assignees: ''
 
 ---
 
-Product GitHub team name: *<your_product_team_name>*
+Product GitHub team name: 
+<!-- your_product_team_name -->
 
 GitHub users to invite:
-- *github_user_account*
+<!-- github_user_account -->
 
 Maintainer of the new GitHub Team:
-- *github_user_account*
+<!-- github_user_account -->

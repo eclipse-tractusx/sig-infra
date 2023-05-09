@@ -8,5 +8,5 @@ assignees: ''
 ---
 
 Required information:
-- Details to your GitHub repository: product-*Your_Product_Name*
-- Details to GitHub team to grant access: *github_team_name*
+- Details to your GitHub repository: product-<!-- Your_Product_Name -->
+- Details to GitHub team to grant access: <!-- github_team_name -->

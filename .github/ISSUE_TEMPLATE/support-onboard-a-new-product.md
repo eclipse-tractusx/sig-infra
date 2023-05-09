@@ -7,8 +7,9 @@ assignees: ''
 
 ---
 
-Product name: product-*<Your-Product-Name>*  
-GitHub users to invite: *github_user_accounts*  
-Vouching person: *Your_Product_Owner*
+Product name: product-<!-- Your-Product-Name -->  
+GitHub users to invite: <!-- github_user_accounts -->  
+Vouching person: <!-- Your_Product_Owner -->
 
-(including new GitHub-team, new GitHub-repository, ArgoCD and Vault)
+<!-- (including new GitHub-team, new GitHub-repository, ArgoCD and Vault) -->
+

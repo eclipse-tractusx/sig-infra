@@ -8,10 +8,10 @@ assignees: ''
 ---
 
 repository name within Tractus-X Organisation: 
-*repo_name*
+<!-- Please tell us the repo_name -->
 
 repository name within Catena-X NG Organisation: 
-tx-*repo_name*
+tx-<!-- Please tell us the repo_name -->
 
 GitHub team to grant access: 
-*github_team_name*
+<!-- Please tell us the github_team_name to get access-->
