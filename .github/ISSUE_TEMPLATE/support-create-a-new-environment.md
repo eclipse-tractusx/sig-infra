@@ -7,10 +7,10 @@ assignees: ''
 
 ---
 
-Purpose: *Please describe the purpose of the new environment*  
-Requested by: *Your_Product_Owner*  
-End date of demonstration: *dd.mm.yyyy*  
-Teams participating: *product_team_name*
+Purpose: <!-- Please describe the purpose of the new environment. -->
+Requested by: <!-- Please add your Product_Owner_GitHub-User-ID -->  
+End date of demonstration: <!-- Declare the end Date in format dd.mm.yyyy -->  
+Teams participating: <!-- Please fill in the product_team_name -->
 
 > BEWARE: 
 > We do not provide dedicated environments for single teams. We will provide a DEV, INT, and 

@@ -7,8 +7,9 @@ assignees: ''
 
 ---
 
-new GitHub user: *GITHUB-USER-ID*
+new GitHub user: <!-- Please fill in the GITHUB-USER-ID -->
 
-Question from us: *who can verify that the new user is a Member of Catena-X NG GitHub Organisation*
+Question from us: 
+<!-- who can verify that the new user is a Member of Catena-X NG GitHub Organisation -->
 
-Vouching person: *Your_Product_Owner*
+Vouching person: <!-- Please fill in your Product_Owner -->
