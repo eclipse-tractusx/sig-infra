@@ -2,7 +2,7 @@
 name: 'System Team Task'
 about: Generate Tasks for the System Team
 title: ''
-labels: task
+labels: tasks
 assignees: ''
 
 ---
