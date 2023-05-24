@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Eclipse Matrix Communication Channels
-    url: https://chat.eclipse.org/#/room/#tools.tractus-x:matrix.eclipse.org
-    about: Committer Channel from Eclipse
+  - name: Eclipse Tractus X GitHub organisation Requests
+    url: https://eclipse-tractusx.github.io/docs/oss/issues#eclipse-foundation-helpdesk
+    about: If you need something for Eclipse Tractus X GitHub organisation we have to raise a GitLab Issue

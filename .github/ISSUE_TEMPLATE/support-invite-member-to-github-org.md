@@ -1,5 +1,5 @@
 ---
-name: 'Support: Invite member to consortium GitHub organization'
+name: 'Support: Invite member to Catena-X organization'
 about: If you need to invite a new Member within Catena-X NG
 title: 'GitHub: Invite member '
 labels: support
@@ -7,9 +7,12 @@ assignees: ''
 
 ---
 
-new GitHub user: <!-- Please fill in the GITHUB-USER-ID -->
+Who should invited to [Catena-X NG](https://github.com/catenax-ng)
 
-Question from us: 
-<!-- who can verify that the new user is a Member of Catena-X NG GitHub Organisation -->
+GitHub User:
+<!-- Please fill in the GITHUB-USER-ID -->
 
-Vouching person: <!-- Please fill in your Product_Owner -->
+Vouching person: <!-- Please fill in your Product Owners GITHUB-USER-ID-->
+<!-- Info: Who can verify that the new user is a Member of Catena-X -->
+
+

@@ -12,6 +12,6 @@ Requested by: <!-- Please add your Product_Owner_GitHub-User-ID -->
 End date of demonstration: <!-- Declare the end Date in format dd.mm.yyyy -->  
 Teams participating: <!-- Please fill in the product_team_name -->
 
-> BEWARE: 
+> ! Please be aware:   
 > We do not provide dedicated environments for single teams. We will provide a DEV, INT, and 
-PRE-PROD environment and teams will collectively use these environments together. A list of available environments can be found in the X Conf.
+PRE-PROD environment and teams will collectively use these environments together. A list of available environments can be found in the Catena-X Confluence.
