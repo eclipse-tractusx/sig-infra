@@ -1,7 +1,7 @@
 ---
 name: 'Support: Create new consortium demo environment'
-about: If you need a hole new Environment for a good reason
-title: 'New Environment '
+about: If you need a whole new Environment for a good reason
+title: 'New Environment'
 labels: support
 assignees: ''
 
