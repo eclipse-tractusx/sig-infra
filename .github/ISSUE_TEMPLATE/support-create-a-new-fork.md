@@ -1,5 +1,5 @@
 ---
-name: 'Support: Create a new Fork in the consortium GitHub organisation'
+name: 'Support: Create a new Fork in the Catena-X organisation'
 about: If you need a new fork from Tractus-X into Catena-X NG
 title: 'GitHub: New fork '
 labels: support

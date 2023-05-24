@@ -1,5 +1,5 @@
 ---
-name: 'Support: Create a new GitHub Team in the consortium GitHub organisation'
+name: 'Support: Create a new GitHub Team in the Catena-X organisation'
 about: If you need a new team within Catena-X NG
 title: 'GitHub: New Team '
 labels: support
