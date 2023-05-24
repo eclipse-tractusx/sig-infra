@@ -1,6 +1,6 @@
 ---
 name: 'System Team Task'
-about: Generate Tasks for the System Team
+about: Generate Tasks (only for System Team Members)
 title: ''
 labels: tasks
 assignees: ''
