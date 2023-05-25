@@ -12,7 +12,7 @@ Who should invited to [Catena-X NG](https://github.com/catenax-ng)
 GitHub User:
 <!-- Please fill in the GITHUB-USER-ID -->
 
-Vouching person: <!-- Please fill in your GitHub-Teams Maintainer GITHUB-USER-ID or the Product Owners GITHUB-USER-ID -->
+Vouching person: <!-- Please fill in your Catena-X NG GitHub-Teams Maintainer GITHUB-USER-ID or the Product Owners GITHUB-USER-ID -->
 <!-- Info: Who can verify that the new user is a Member of Catena-X -->
 
 
