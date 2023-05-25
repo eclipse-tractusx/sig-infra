@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-Who should invited to [Catena-X NG](https://github.com/catenax-ng)
+Who should be invited to [Catena-X NG](https://github.com/catenax-ng)
 
 GitHub User:
 <!-- Please fill in the GITHUB-USER-ID -->
