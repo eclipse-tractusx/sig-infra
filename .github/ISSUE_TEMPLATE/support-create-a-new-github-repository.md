@@ -10,3 +10,5 @@ assignees: ''
 Required information:
 - Details to your GitHub repository: product-<!-- Your_Product_Name -->
 - Details to GitHub team to grant access: <!-- github_team_name -->
+
+validation / approved by: <!-- Please add your Product_Owner_GitHub-User-ID -->

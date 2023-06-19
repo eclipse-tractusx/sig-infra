@@ -15,3 +15,5 @@ GitHub users to invite:
 
 Maintainer of the new GitHub Team:
 <!-- github_user_account -->
+
+validation / approved by: <!-- Please add your Product_Owner_GitHub-User-ID -->

@@ -9,7 +9,7 @@ assignees: ''
 
 Product name: product-<!-- Your-Product-Name -->  
 GitHub users to invite: <!-- github_user_accounts -->  
-Vouching person: <!-- Your_Product_Owner -->
+Validation / approved by: <!-- Please add your Product_Owner_GitHub-User-ID -->
 
 <!-- (including new GitHub-team, new GitHub-repository, ArgoCD and Vault) -->
 
