@@ -21,6 +21,8 @@ name: 'Generate svg.file from source'
 
 on:
   push:
+    branches:
+      - main
     # Trigger was set only for mermaid related files
     paths:
       - '**/*.mermaid'
