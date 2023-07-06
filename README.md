@@ -64,7 +64,7 @@ __Description__:    This workflow generates static .svg files form .mmd/.mermaid
 __Workflow file__:  [.github/workflows/reusable-generate-mermaid-svg.yaml](.github/workflows/reusable-generate-mermaid-svg.yaml)
 __Usage__:
 ```yaml
-# Example .github/workflows/add-static-puml-files.yaml in your repo
+# Example .github/workflows/add-static-mermaid-files.yml in your repo
 name: "Render static mermaid files"
 # trigger on push to main branch with changed *.mermaid or *.mmd  files in your repository structure
 on:
