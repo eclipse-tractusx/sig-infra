@@ -15,7 +15,7 @@ examples on how to use them.
 ### Quality checks
 
 __Description__:    This workflow runs automated checks, that test for compliance with our [Release Guidelines](https://eclipse-tractusx.github.io/docs/release)
-__Workflow file__:  [.github/workflows/quality-checks.yaml](.github/workflows/quality-checks.yaml)
+__Workflow file__:  [.github/workflows/reusable-quality-checks.yaml](.github/workflows/reusable-quality-checks.yaml)
 __Usage__:
 ```yaml
 # Example .github/workflows/quality-checks.yaml in your repo
@@ -35,4 +35,47 @@ jobs:
       # Reference the reusable workflow by <org>/<repo>/<path-to-reusable-workflow>@revision
       # We recooment to use the @main branch, since we regularly maintain the quality checks (adding new, enhancing existing) 
       - uses: eclipse-tractusx/sig-infra/.github/workflows/reusable-quality-checks.yaml@main
+```
+
+### Generate static PlantUML files 
+
+__Description__:    This workflow generates static .svg files form .puml-files and push this to main branch
+__Workflow file__:  [.github/workflows/reusable-generate-puml-svg.yaml](.github/workflows/reusable-generate-puml-svg.yaml)
+__Usage__:
+```yaml
+# Example .github/workflows/add-static-puml-files.yaml in your repo
+name: "Render static puml files"
+# trigger on push to main branch with changed **.puml files in your repository structure
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '**/*.puml'
+jobs:
+  render-images:
+    uses: eclipse-tractusx/sig-infra/.github/workflows/reusable-generate-puml-svg.yaml@main
+
+```
+
+### Generate static Mermaid files
+
+__Description__:    This workflow generates static .svg files form .mmd/.mermaid-files and push this to main branch
+__Workflow file__:  [.github/workflows/reusable-generate-mermaid-svg.yaml](.github/workflows/reusable-generate-mermaid-svg.yaml)
+__Usage__:
+```yaml
+# Example .github/workflows/add-static-puml-files.yaml in your repo
+name: "Render static mermaid files"
+# trigger on push to main branch with changed *.mermaid or *.mmd  files in your repository structure
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '**/*.mermaid'
+      - '**/*.mmd'
+jobs:
+  render-images:
+    uses: eclipse-tractusx/sig-infra/.github/workflows/reusable-generate-mermaid-svg.yaml@main
+
 ```
