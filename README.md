@@ -38,6 +38,85 @@ jobs:
       # We recooment to use the @main branch, since we regularly maintain the quality checks (adding new, enhancing existing) 
       - uses: eclipse-tractusx/sig-infra/.github/workflows/reusable-quality-checks.yaml@main
 ```
+### Generate static PlantUML files
+
+__Description__:    This workflow generates static .svg files form .puml-files and upload it as job artifact
+
+__Workflow file__:  [.github/workflows/reusable-generate-puml-svg.yaml](.github/workflows/reusable-generate-puml-svg.yaml)
+
+__Usage__:
+
+```yaml
+# Example .github/workflows/add-static-puml-files.yaml in your repo
+name: "Render static puml files"
+# Trigger as you want here in example each time a puml file was updated on main branch
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '**/*.puml'
+jobs:
+  render-images:
+    uses: SystemGuideOrg/rendering/.github/workflows/reusable-generate-puml-files.yml@main
+
+  store-images:
+    runs-on: ubuntu-latest
+    # 2nd job waits for generated files
+    needs: render-images
+    steps:
+      - name: checkout source repo
+        uses: actions/checkout@v3
+      - name: download generated svg file from job before
+        uses: actions/download-artifact@v3
+        id: download
+        with:
+          name: my-puml-artifacts
+          path: ${{ github.workspace }}
+    # now you can use the downloaded files on desired way
+```
+
+### Generate static Mermaid files
+
+__Description__:    This workflow generates static .svg files form .mmd/.mermaid-files and push this to main branch
+__Workflow file__:  [.github/workflows/reusable-generate-mermaid-svg.yaml](.github/workflows/reusable-generate-mermaid-svg.yaml)
+__Usage__:
+```yaml
+# Example .github/workflows/add-static-puml-files.yaml in your repo
+name: "Render static mermaid files"
+# Trigger as you want here in example each time a mermaid file was updated on main branch
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '**/*.mermaid'
+      - '**/*.mmd'
+jobs:
+  render-images:
+    # Uses our workflow with specified mermaid-cli and node version
+    uses: 'SystemGuideOrg/rendering/.github/workflows/reusable-generate-mermaid-files.yml@main'
+    with:
+      node_version: 16
+      mmdc_version: 10.2.4
+
+  store-images:
+    runs-on: ubuntu-latest
+    needs: render-images
+    steps:
+      - name: checkout source repo
+        uses: actions/checkout@v3
+
+      - name: download generated svg file from job before
+        # here you download the generated files from previous job
+        uses: actions/download-artifact@v3
+        id: download
+        with:
+          name: my-svg-artifacts
+          # choose where to store this file
+          path: ${{ github.workspace }}
+    # now you can use the downloaded files on desired way
+```
 
 ## Actions
 
@@ -81,4 +160,3 @@ jobs:
           fail_on_rejected: true # default
           fail_on_restricted: false # default
 ```
-
