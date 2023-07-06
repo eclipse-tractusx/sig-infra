@@ -17,7 +17,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #########################################################################################
 
-name: 'generate static Mermaid files'
+name : 'generate static Mermaid files'
 on:
   workflow_call:
 jobs:
@@ -27,7 +27,7 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v3
         with:
-         node-version: 16
+          node-version: 16
       - name: install mermaid cli
         run: |
           npm install -g @mermaid-js/mermaid-cli
@@ -39,8 +39,8 @@ jobs:
       - name: search for files
         id: search_files
         run: |
-         pwd
-         echo "mermaid_files=$(find . -type f \( -name "*.mmd" -o -name "*.mermaid" \) | xargs )" >> $GITHUB_OUTPUT
+          pwd
+          echo "mermaid_files=$(find . -type f \( -name "*.mmd" -o -name "*.mermaid" \) | xargs )" >> $GITHUB_OUTPUT
       - name: show step output
         run: echo "step files from ${{ steps.search_files.outputs.mermaid_files }}"
       - name: generate svg file
@@ -52,12 +52,12 @@ jobs:
              echo "${file%.*}.svg"
              git add ${file%.*}.svg
             done
-      - name: push this svg files to pr-branch
+      - name: push this files to branch
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          branch: ${{ github.event.pull_request.head.ref }}
+          branch: main
           commit_message: 'chore(docs): add static mermaid *.svg files"'
-          file_pattern: '*.svg'
+          file_pattern: '**/*.svg'
           repository: .
           # Optional commit user and author settings
           commit_user_name: GitHub Actions Bot # defaults to "github-actions[bot]"
