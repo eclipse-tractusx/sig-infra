@@ -1,0 +1,65 @@
+#########################################################################################
+# Copyright (c) 2023 Contributors to the Eclipse Foundation
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License, Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0.
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+#########################################################################################
+
+name : 'generate static Mermaid files'
+on:
+  workflow_call:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: install mermaid cli
+        run: |
+          npm install -g @mermaid-js/mermaid-cli
+      - name: print mmdc version
+        run: |
+          mmdc -V
+      - name: checkout source repo
+        uses: actions/checkout@v3.5.3
+      - name: search for files
+        id: search_files
+        run: |
+          pwd
+          echo "mermaid_files=$(find . -type f \( -name "*.mmd" -o -name "*.mermaid" \) | xargs )" >> $GITHUB_OUTPUT
+      - name: show step output
+        run: echo "step files from ${{ steps.search_files.outputs.mermaid_files }}"
+      - name: generate svg file
+        id: generated
+        run: |
+          for file in ${{ steps.search_files.outputs.mermaid_files }};
+            do
+             mmdc -i $file -o ${file%.*}.svg
+             echo "${file%.*}.svg"
+             git add ${file%.*}.svg
+            done
+      - name: push this files to branch
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: main
+          commit_message: 'chore(docs): add static mermaid *.svg files"'
+          file_pattern: '**/*.svg'
+          repository: .
+          # Optional commit user and author settings
+          commit_user_name: GitHub Actions Bot # defaults to "github-actions[bot]"
+          commit_user_email: github-actions-bot@example.org # defaults to "41898282+github-actions[bot]@users.noreply.github.com"
+          commit_author: Author <actions@github.com> # defaults to author of the commit that triggered the run
