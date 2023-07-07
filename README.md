@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Reference the reusable workflow by <org>/<repo>/<path-to-reusable-workflow>@revision
-      # We recooment to use the @main branch, since we regularly maintain the quality checks (adding new, enhancing existing) 
+      # We recommend to use the @main branch, since we regularly maintain the quality checks (adding new, enhancing existing) 
       - uses: eclipse-tractusx/sig-infra/.github/workflows/reusable-quality-checks.yaml@main
 ```
 ### Generate static PlantUML files
