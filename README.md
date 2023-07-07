@@ -15,7 +15,9 @@ examples on how to use them.
 ### Quality checks
 
 __Description__:    This workflow runs automated checks, that test for compliance with our [Release Guidelines](https://eclipse-tractusx.github.io/docs/release)
-__Workflow file__:  [.github/workflows/quality-checks.yaml](.github/workflows/quality-checks.yaml)
+
+__Workflow file__:  [.github/workflows/quality-checks.yaml](.github/workflows/reusable-quality-checks.yaml)
+
 __Usage__:
 ```yaml
 # Example .github/workflows/quality-checks.yaml in your repo
