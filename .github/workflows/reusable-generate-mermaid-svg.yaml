@@ -30,12 +30,12 @@ jobs:
           node-version: 16
       - name: install mermaid cli
         run: |
-          npm install -g @mermaid-js/mermaid-cli
+          npm install -g @mermaid-js/mermaid-cli@10.2
       - name: print mmdc version
         run: |
           mmdc -V
       - name: checkout source repo
-        uses: actions/checkout@v3.5.3
+        uses: actions/checkout@v3
       - name: search for files
         id: search_files
         run: |
@@ -44,6 +44,7 @@ jobs:
       - name: show step output
         run: echo "step files from ${{ steps.search_files.outputs.mermaid_files }}"
       - name: generate svg file
+        # this step generate svg files for every file that was found in step-id 'search_files' and stage the generated files
         id: generated
         run: |
           for file in ${{ steps.search_files.outputs.mermaid_files }};
@@ -53,6 +54,7 @@ jobs:
              git add ${file%.*}.svg
             done
       - name: push this files to branch
+        # this step commit and push only the generated svg files to the branch main
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           branch: main
