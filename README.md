@@ -15,7 +15,9 @@ examples on how to use them.
 ### Quality checks
 
 __Description__:    This workflow runs automated checks, that test for compliance with our [Release Guidelines](https://eclipse-tractusx.github.io/docs/release)
-__Workflow file__:  [.github/workflows/reusable-quality-checks.yaml](.github/workflows/reusable-quality-checks.yaml)
+
+__Workflow file__:  [.github/workflows/quality-checks.yaml](.github/workflows/reusable-quality-checks.yaml)
+
 __Usage__:
 ```yaml
 # Example .github/workflows/quality-checks.yaml in your repo
@@ -39,8 +41,12 @@ jobs:
 
 ### Generate static PlantUML files 
 
-__Description__:    This workflow generates static .svg files form .puml-files and push this to main branch
+__Description__:    
+
+This workflow generates static .svg files in your repository from .puml-files and push this to main branch to keep your static files updated when you created changes on your .puml files.
+
 __Workflow file__:  [.github/workflows/reusable-generate-puml-svg.yaml](.github/workflows/reusable-generate-puml-svg.yaml)
+
 __Usage__:
 ```yaml
 # Example .github/workflows/add-static-puml-files.yaml in your repo
@@ -55,13 +61,16 @@ on:
 jobs:
   render-images:
     uses: eclipse-tractusx/sig-infra/.github/workflows/reusable-generate-puml-svg.yaml@main
-
 ```
 
 ### Generate static Mermaid files
 
-__Description__:    This workflow generates static .svg files form .mmd/.mermaid-files and push this to main branch
+__Description__:  
+
+This workflow generates static .svg files in your repository from .mmd/.mermaid-files and push this to main branch to keep your static files updated when you created changes on your .mmd/.mermaid-files.
+
 __Workflow file__:  [.github/workflows/reusable-generate-mermaid-svg.yaml](.github/workflows/reusable-generate-mermaid-svg.yaml)
+
 __Usage__:
 ```yaml
 # Example .github/workflows/add-static-mermaid-files.yml in your repo
@@ -77,5 +86,4 @@ on:
 jobs:
   render-images:
     uses: eclipse-tractusx/sig-infra/.github/workflows/reusable-generate-mermaid-svg.yaml@main
-
 ```
