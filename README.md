@@ -35,6 +35,55 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Reference the reusable workflow by <org>/<repo>/<path-to-reusable-workflow>@revision
-      # We recooment to use the @main branch, since we regularly maintain the quality checks (adding new, enhancing existing) 
+      # We recommend to use the @main branch, since we regularly maintain the quality checks (adding new, enhancing existing) 
       - uses: eclipse-tractusx/sig-infra/.github/workflows/reusable-quality-checks.yaml@main
+```
+
+### Generate static PlantUML files 
+
+__Description__:    
+
+This workflow generates static .svg files in your repository from .puml-files and push this to main branch to keep your static files updated when you created changes on your .puml files.
+
+__Workflow file__:  [.github/workflows/reusable-generate-puml-svg.yaml](.github/workflows/reusable-generate-puml-svg.yaml)
+
+__Usage__:
+```yaml
+# Example .github/workflows/add-static-puml-files.yaml in your repo
+name: "Render static puml files"
+# trigger on push to main branch with changed **.puml files in your repository structure
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '**/*.puml'
+jobs:
+  render-images:
+    uses: eclipse-tractusx/sig-infra/.github/workflows/reusable-generate-puml-svg.yaml@main
+```
+
+### Generate static Mermaid files
+
+__Description__:  
+
+This workflow generates static .svg files in your repository from .mmd/.mermaid-files and push this to main branch to keep your static files updated when you created changes on your .mmd/.mermaid-files.
+
+__Workflow file__:  [.github/workflows/reusable-generate-mermaid-svg.yaml](.github/workflows/reusable-generate-mermaid-svg.yaml)
+
+__Usage__:
+```yaml
+# Example .github/workflows/add-static-mermaid-files.yml in your repo
+name: "Render static mermaid files"
+# trigger on push to main branch with changed *.mermaid or *.mmd  files in your repository structure
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '**/*.mermaid'
+      - '**/*.mmd'
+jobs:
+  render-images:
+    uses: eclipse-tractusx/sig-infra/.github/workflows/reusable-generate-mermaid-svg.yaml@main
 ```
