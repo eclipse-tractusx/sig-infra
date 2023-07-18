@@ -116,9 +116,9 @@ runs:
     - name: Verify job status
       run: |
         echo "Verify step outputs and action input to let the job pass/fail"
-        if [[ ${{ inputs.fail_on_out_of_date }} == 'true' && ${{ steps.dependency-diff.outputs.changed == 'true' }} || \
-              ${{ inputs.fail_on_rejected }} == 'true' && ${{ steps.rejected-check.outputs.rejected-found == 'true' }} || \
-              ${{ inputs.fail_on_restricted }} == 'true' && ${{ steps.restricted-check.outputs.restricted-found == 'true' }} \
+        if [[ (${{ inputs.fail_on_out_of_date == 'true' }} && ${{ steps.dependency-diff.outputs.changed == 'true' }} && echo "up-to-date check OK") || \
+              (${{ inputs.fail_on_rejected == 'true' }} && ${{ steps.rejected-check.outputs.rejected-found == 'true' }} && echo "rejected check OK") || \
+              (${{ inputs.fail_on_restricted == 'true' }} && ${{ steps.restricted-check.outputs.restricted-found == 'true' }} && echo "restricted check OK") \
         ]]; then
           echo "A check, that is marked as failure relevant, has not passed. Failing job."
           exit 1
