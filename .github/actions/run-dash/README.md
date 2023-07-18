@@ -14,7 +14,7 @@ The following examples show different usage of the action for different build sy
 ### Analyze golang application
 
 Golang defines detailed dependency and version info in a file called `go.sum`. The Eclipse Dash tool can interpret that file
-as-is. Therefor a minimal set of config for the `run-dash` action is needed.
+as-is. Therefore, a minimal set of config for the `run-dash` action is needed.
 
 ```yaml
 name: "3rd Party dependency check (Eclipse Dash)"
