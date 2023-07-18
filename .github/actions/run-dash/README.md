@@ -9,6 +9,39 @@ contain
 
 ## Usage
 
+The following examples show different usage of the action for different build systems and programming languages.
+
+### Analyze golang application
+
+Golang defines detailed dependency and version info in a file called `go.sum`. The Eclipse Dash tool can interpret that file
+as-is. Therefor a minimal set of config for the `run-dash` action is needed.
+
+```yaml
+name: "3rd Party dependency check (Eclipse Dash)"
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  check-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Run dash
+        id: run-dash
+        uses: eclipse-tractusx/sig-infra/.github/actions/run-dash@main
+        with:
+          dash_input: "go.sum"
+```
+
 ## Inputs
 
 | input name            | description                                                            | required |     default      |
