@@ -38,3 +38,19 @@ jobs:
       # We recooment to use the @main branch, since we regularly maintain the quality checks (adding new, enhancing existing) 
       - uses: eclipse-tractusx/sig-infra/.github/workflows/reusable-quality-checks.yaml@main
 ```
+
+## Actions
+
+This repo also provides some [custom GitHub](https://docs.github.com/en/actions/creating-actions) actions in [.github/actions](.github/actions).
+
+### Check dependencies with [dash-licenses](https://github.com/eclipse/dash-licenses)
+
+__Description__: This action is setting up [dash-licenses](https://github.com/eclipse/dash-licenses) and running it to analyze the project dependencies.
+It will check, if the current `DEPENDENCIES` file in the repository is up-to-date and if it contains `restricted` or even `rejected` libs.
+
+__Example Usage__: You can use the action like in the following example. For a complete list of inputs and outputs, refer to [the action docs](.github/actions/run-dash/README.md) 
+
+```yaml
+
+```
+
