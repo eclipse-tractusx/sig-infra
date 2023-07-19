@@ -38,3 +38,47 @@ jobs:
       # We recooment to use the @main branch, since we regularly maintain the quality checks (adding new, enhancing existing) 
       - uses: eclipse-tractusx/sig-infra/.github/workflows/reusable-quality-checks.yaml@main
 ```
+
+## Actions
+
+This repo also provides some [custom GitHub](https://docs.github.com/en/actions/creating-actions) actions in [.github/actions](.github/actions).
+
+### Check dependencies with [dash-licenses](https://github.com/eclipse/dash-licenses)
+
+__Description__: This action is setting up [dash-licenses](https://github.com/eclipse/dash-licenses) and running it to analyze the project dependencies.
+It will check, if the current `DEPENDENCIES` file in the repository is up-to-date and if it contains `restricted` or even `rejected` libs.
+
+__Example Usage__: You can use the action like in the following example. For a complete list of inputs and outputs, refer to [the action docs](.github/actions/run-dash/README.md) 
+
+```yaml
+# ...
+name: "3rd Party dependency check (Eclipse Dash)"
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  check-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Run dash
+        id: run-dash
+        uses: eclipse-tractusx/sig-infra/.github/actions/run-dash@main
+        with:
+          dash_version: "1.0.2" # default = 'LATEST'
+          dash_input: "package-lock.json" # If your build tool does not have a file, that dash can interpret as-is, add a step to generate it first and reference it here
+          dependencies_file: "DEPENDENCIES_FRONTEND"
+          fail_on_out_of_date: true # default
+          fail_on_rejected: true # default
+          fail_on_restricted: false # default
+```
+
