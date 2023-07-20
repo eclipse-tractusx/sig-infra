@@ -40,7 +40,7 @@ jobs:
 ```
 ### Generate static PlantUML files
 
-__Description__:    This workflow generates static .svg files form .puml-files and upload it as job artifact
+__Description__:    This workflow generates static .svg files from .puml-files and upload it as job artifact
 
 __Workflow file__:  [.github/workflows/reusable-generate-puml-svg.yaml](.github/workflows/reusable-generate-puml-svg.yaml)
 
@@ -58,7 +58,7 @@ on:
       - '**/*.puml'
 jobs:
   render-images:
-    uses: SystemGuideOrg/rendering/.github/workflows/reusable-generate-puml-files.yml@main
+    uses: eclipse-tractusx/sig-infra/.github/workflows/reusable-generate-puml-svg.yaml@main
 
   store-images:
     runs-on: ubuntu-latest
@@ -78,8 +78,12 @@ jobs:
 
 ### Generate static Mermaid files
 
-__Description__:    This workflow generates static .svg files form .mmd/.mermaid-files and push this to main branch
+__Description__:  
+
+This workflow generates static .svg files in your repository from .mmd/.mermaid-files and upload it as job artifact
+
 __Workflow file__:  [.github/workflows/reusable-generate-mermaid-svg.yaml](.github/workflows/reusable-generate-mermaid-svg.yaml)
+
 __Usage__:
 ```yaml
 # Example .github/workflows/add-static-mermaid-files.yml in your repo
@@ -94,8 +98,8 @@ on:
       - '**/*.mmd'
 jobs:
   render-images:
+    uses: eclipse-tractusx/sig-infra/.github/workflows/reusable-generate-mermaid-svg.yaml@main
     # Uses our workflow with specified mermaid-cli and node version
-    uses: 'SystemGuideOrg/rendering/.github/workflows/reusable-generate-mermaid-files.yml@main'
     with:
       node_version: 16
       mmdc_version: 10.2.4
