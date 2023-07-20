@@ -1,5 +1,5 @@
 ---
-name: 'Support: Invite member to Catena-X organization'
+name: '🤝 Support: Invite member to Catena-X organization'
 about: If you need to invite a new Member within Catena-X ng
 title: 'GitHub: Invite member '
 labels: support

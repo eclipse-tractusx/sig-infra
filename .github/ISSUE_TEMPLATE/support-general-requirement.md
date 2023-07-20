@@ -1,5 +1,5 @@
 ---
-name: 'Support: other topics'
+name: '❔ Support: other topics'
 about: If you have a general question
 title: ''
 labels: support
