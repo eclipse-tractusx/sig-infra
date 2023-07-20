@@ -1,5 +1,5 @@
 ---
-name: '🆕 Support: Onboard a new product in the Catena-X GitHub organisation'
+name: '🆕 Support: Onboard a new product to the Catena-X GitHub NG organisation'
 about: If you need a complete new product within Catena-X NG
 title: 'New Product '
 labels: support

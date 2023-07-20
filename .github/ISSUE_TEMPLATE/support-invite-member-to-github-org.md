@@ -1,6 +1,6 @@
 ---
-name: '🤝 Support: Invite member to Catena-X organization'
-about: If you need to invite a new Member within Catena-X ng
+name: '🤝 Support: Invite member to Catena-X NG organization'
+about: If you need to invite a new Member within Catena-X NG
 title: 'GitHub: Invite member '
 labels: support
 assignees: ''
