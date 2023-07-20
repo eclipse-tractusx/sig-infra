@@ -17,20 +17,38 @@
 # SPDX-License-Identifier: Apache-2.0
 #########################################################################################
 
-name : 'generate static Mermaid files'
+name: 'generate static Mermaid files'
 on:
   workflow_call:
+    inputs:
+      mmdc_version:
+        required: true
+        default: 10.2.4
+        type: string
+      node_version:
+        required: true
+        default: 16
+        type: string
+    outputs:
+      found_files:
+        description: "Information which mermaid files are found in step"
+        value: ${{ jobs.generate-mermaid-files.outputs.mermaid_files }}
+      files:
+        description: "Information which mermaid files will be generated"
+        value: ${{ jobs.generate-mermaid-files.outputs.generated_files }}
+
 jobs:
-  build:
+  generate-mermaid-files:
     runs-on: ubuntu-latest
     steps:
       - name: setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: ${{ inputs.node_version }}
       - name: install mermaid cli
+        # https://www.npmjs.com/package/@mermaid-js/mermaid-cli
         run: |
-          npm install -g @mermaid-js/mermaid-cli@10.2
+          npm install -g @mermaid-js/mermaid-cli@${{ inputs.mmdc_version.value }}
       - name: print mmdc version
         run: |
           mmdc -V
@@ -44,24 +62,17 @@ jobs:
       - name: show step output
         run: echo "step files from ${{ steps.search_files.outputs.mermaid_files }}"
       - name: generate svg file
-        # this step generate svg files for every file that was found in step-id 'search_files' and stage the generated files
-        id: generated
+        id: generate
         run: |
           for file in ${{ steps.search_files.outputs.mermaid_files }};
             do
              mmdc -i $file -o ${file%.*}.svg
              echo "${file%.*}.svg"
-             git add ${file%.*}.svg
+             echo "generated_files=${file%.*}.svg" >> $GITHUB_OUTPUT
             done
-      - name: push this files to branch
-        # this step commit and push only the generated svg files to the branch main
-        uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: actions/upload-artifact@v3
+        # upload generated files as Job artifacts which can be download in the in your caller workflow
         with:
-          branch: main
-          commit_message: 'chore(docs): add static mermaid *.svg files"'
-          file_pattern: '**/*.svg'
-          repository: .
-          # Optional commit user and author settings
-          commit_user_name: GitHub Actions Bot # defaults to "github-actions[bot]"
-          commit_user_email: github-actions-bot@example.org # defaults to "41898282+github-actions[bot]@users.noreply.github.com"
-          commit_author: Author <actions@github.com> # defaults to author of the commit that triggered the run
+          name: my-svg-artifacts
+          path: "**/*.svg"
+          if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
