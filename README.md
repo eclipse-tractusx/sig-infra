@@ -70,7 +70,7 @@ jobs:
         uses: actions/download-artifact@v3
         id: download
         with:
-          name: my-puml-artifacts
+          name: artifacts
           path: ${{ github.workspace }}
       # now you can handle the files in your desired way
 ```
@@ -113,7 +113,7 @@ jobs:
         uses: actions/download-artifact@v3
         id: download
         with:
-          name: my-svg-artifacts
+          name: artifacts
           # choose where to store this file
           path: ${{ github.workspace }}
       # now you can handle the files in your desired way

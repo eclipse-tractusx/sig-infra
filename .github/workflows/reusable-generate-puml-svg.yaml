@@ -45,6 +45,6 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          name: my-puml-artifacts
+          name: artifacts
           path: "**/*.svg"
           if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`

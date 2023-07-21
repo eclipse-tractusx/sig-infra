@@ -73,6 +73,6 @@ jobs:
       - uses: actions/upload-artifact@v3
         # upload generated files as Job artifacts which can be downloaded in the in your caller workflow
         with:
-          name: my-svg-artifacts
+          name: artifacts
           path: "**/*.svg"
           if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
