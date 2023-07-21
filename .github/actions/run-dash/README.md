@@ -13,7 +13,8 @@ The following examples show different usage of the action for different build sy
 
 ### Analyze golang application
 
-Golang defines detailed dependency and version info in a file called `go.sum`. The Eclipse Dash tool can interpret that file
+Golang defines detailed dependency and version info in a file called `go.sum`. The Eclipse Dash tool can interpret that
+file
 as-is. Therefore, a minimal set of config for the `run-dash` action is needed.
 
 ```yaml
@@ -51,7 +52,7 @@ jobs:
 | `dependencies_file`   | The path to the `DEPENDENCIES` file in the repo                        |  `true`  | "./DEPENDENCIES" |
 | `fail_on_out_of_date` | If set to 'true', the action fails, if `DEPENDENCIES` out of date      |  `true`  |      "true"      |
 | `fail_on_rejected`    | If set to 'true', the action fails, if `rejected` dependencies found   |  `true`  |      "true"      |
-| `fail_on_out_of_date` | If set to 'true', the action fails, if `restricted` dependencies found |  `true`  |     "false"      |
+| `fail_on_restricted`  | If set to 'true', the action fails, if `restricted` dependencies found |  `true`  |     "false"      |
 
 ## Outputs
 
