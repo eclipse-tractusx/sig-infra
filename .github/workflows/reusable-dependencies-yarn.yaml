@@ -20,11 +20,7 @@
 name: Check Dependencies (yarn)
 
 on:
-  # push:
-  #   branches: [main, dev]
-  # pull_request:
-  #   types: [opened, synchronize, reopened]
-  # workflow_dispatch:
+  workflow_call:
 
 jobs:
   check-dependencies:
@@ -32,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-  
+
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
