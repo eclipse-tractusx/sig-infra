@@ -79,7 +79,7 @@ runs:
     - name: Check for differences between existing ${{ inputs.dependencies_file }} and the generated one
       id: dependency-diff
       run: |
-        changed=$(git diff DEPENDENCIES)
+        changed=$(git diff ${{ inputs.dependencies_file }})
         if [[ -n "$changed" ]]; then
           echo "${{ inputs.dependencies_file }} not up-to-date"
           echo "changed=true" >> $GITHUB_OUTPUT
