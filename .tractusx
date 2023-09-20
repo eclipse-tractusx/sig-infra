@@ -1,5 +1,6 @@
 product: "sig-infra"
 leadingRepository: "https://github.com/eclipse-tractusx/sig-infra"
+supportingRepository: true
 repositories:
   - name: "sig-infra"
     usage: "This is the home of Eclipse Tractus-X Special Interest Group (SIG) infra."
