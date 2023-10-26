@@ -12,7 +12,7 @@ assignees: ''
 >
 > - Make yourself familiar with the Eclipse project roles: https://eclipse-tractusx.github.io/docs/oss/contributor-committer
 > - Make ourself familiar with prerequisites, like a signed ECA: https://eclipse-tractusx.github.io/docs/oss/getting-started
-> - Check the committer liste of our project and higlight at least one of them on this issue, since ever committer
+> - Check the committer list of our project and higlight at least one of them on this issue, since every committer
 > can add project contributors: https://projects.eclipse.org/projects/automotive.tractusx/who
 
 ## Neccessary Information
