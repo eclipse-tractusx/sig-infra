@@ -19,3 +19,5 @@ assignees: ''
 
 Email address to add: <!-- This has to be the email, you use for your Eclipse Foundation account -->
 Committers, that could take over: <!-- Highlight committers you already know or any other with their GitHub handle here in the form of @<github-handle> -->
+
+Please make sure, that you accept the invitation you recieve from GitHub, after you have been added as project contributor.
