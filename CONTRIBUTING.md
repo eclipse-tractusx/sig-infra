@@ -21,7 +21,7 @@ Catena-X alliance focusing on parts traceability.
 The Tractus-X project uses the following licenses:
 
 * Apache-2.0 for code
-* CC-BY-4.0 for non-code artifacts
+* CC-BY-4.0 for non-code
 
 ## Terms of Use
 
