@@ -34,7 +34,7 @@ jobs:
       puml-files: ${{ steps.generate.generate.puml_files }}
     steps:
       - name: checkout source repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Generate PlantUML Diagrams
         id: generate
@@ -43,7 +43,7 @@ jobs:
           format: svg
           pattern: "**/*.puml"
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: artifacts
           path: "**/*.svg"

@@ -65,9 +65,9 @@ jobs:
     needs: render-images
     steps:
       - name: checkout source repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: download generated svg file from job before
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         id: download
         with:
           name: artifacts
@@ -106,11 +106,11 @@ jobs:
     needs: render-images
     steps:
       - name: checkout source repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: download generated svg file from job before
         # here you downlowd the generated files from previous job
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         id: download
         with:
           name: artifacts
@@ -148,7 +148,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Run dash
         id: run-dash
