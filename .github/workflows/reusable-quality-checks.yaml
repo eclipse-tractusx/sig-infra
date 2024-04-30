@@ -32,4 +32,4 @@ jobs:
       - name: Run quality checks
         uses: eclipse-tractusx/sig-release@v1
         with:
-          version: "1.0.0"
+          version: "1.2.0"
