@@ -1,6 +1,6 @@
 ---
-name: 'Support: Onboard a new product in the Catena-X GitHub organisation'
-about: If you need a complete new product within Catena-X NG
+name: 'Support: Onboard a new product in the Catena-X Automotive Network e.V. GitHub organisation'
+about: If you need a complete new product within Catena-X e.V.
 title: 'New Product '
 labels: support
 assignees: ''
