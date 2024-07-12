@@ -1,0 +1,7 @@
+# requirements.in
+
+datetime==5.4
+mdutils==1.6.0
+pandas==2.2.1
+python-dateutil==2.8.2
+requests==2.31.0
