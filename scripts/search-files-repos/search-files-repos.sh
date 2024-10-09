@@ -18,7 +18,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 # #############################################################################
-# Generated using Artificial Intelligence and refined/debugged by Human Committers
+# Generated using Artificial Intelligence (ChatGPT 3.5) and refined/debugged by Human Committers
 # Requires the installation of the github cli: https://cli.github.com/
 # This script can search for different files in different repositories, indicating if they contain the files or not.
 
