@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Added
+
+- Added script to search for specific files in all the `eclipse-tractusx` repositories. Providing which repositories have which file and which repository has no file from the list at all.
+
+- Added script to create an issue in all the `eclipse-tractusx` repositories that were indicated in a list of repositories.
+
 Currently, we have multiple reusable workflows in this repository. Please check out the [README.md](README.md) for further information.
 
 Also see the [actions folder](.github/actions) with custom actions and workflows under [workfows](.github/workflows).
