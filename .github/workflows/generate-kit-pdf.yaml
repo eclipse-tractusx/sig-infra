@@ -22,8 +22,6 @@ name: Generate Kit Template PDF
 
 on:
   push:
-    branches:
-      - main
     paths:
       - 'docs-kits/kit-template/**'
       - 'scripts/generate_kit_pdf.py'
