@@ -1,0 +1,3 @@
+# Python dependencies for PDF generation
+markdown>=3.5.0
+weasyprint>=60.0
