@@ -32,7 +32,7 @@ six==1.16.0
     # via python-dateutil
 tzdata==2024.1
     # via pandas
-urllib3==2.2.1
+urllib3==2.6.0
     # via requests
 zope-interface==6.2
     # via datetime
