@@ -1,5 +1,5 @@
 # #############################################################################
-# Copyright (c) 2023 Contributors to the Eclipse Foundation
+# Copyright (c) 2026 Contributors to the Eclipse Foundation
 #
 # See the NOTICE file(s) distributed with this work for additional
 # information regarding copyright ownership.
@@ -24,7 +24,7 @@ inputs:
   dash_version:
     description: "The version of `dash-licenses` to install"
     required: true
-    default: "v1.1.0"
+    default: "1.1.0"
   dash_input:
     description: "The input dependency list file for `dash-licenses`."
     required: true
