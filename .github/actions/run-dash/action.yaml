@@ -24,7 +24,7 @@ inputs:
   dash_version:
     description: "The version of `dash-licenses` to install"
     required: true
-    default: "LATEST"
+    default: "v1.1.0"
   dash_input:
     description: "The input dependency list file for `dash-licenses`."
     required: true
@@ -60,7 +60,7 @@ runs:
     - name: Download Dash
       run: |
         echo "Downloading Dash version: ${{ inputs.dash_version }}"
-        curl -L -o dash.jar "https://repo.eclipse.org/service/local/artifact/maven/redirect?r=dash-licenses&g=org.eclipse.dash&a=org.eclipse.dash.licenses&v=${{ inputs.dash_version }}"
+        curl -L -o dash.jar "https://repo.eclipse.org/service/rest/v1/search/assets/download?repository=dash-maven2-releases&maven.groupId=org.eclipse.dash&maven.artifactId=org.eclipse.dash.licenses&maven.baseVersion=${{ inputs.dash_version }}&maven.extension=jar"
       shell: bash
 
     # https://github.com/actions/setup-java
