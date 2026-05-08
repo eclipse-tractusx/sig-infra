@@ -1,0 +1,99 @@
+# #############################################################################
+# Copyright (c) 2026 Contributors to the Eclipse Foundation
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License, Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0.
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+# #############################################################################
+
+name: Trivy (Reusable)
+
+on:
+  workflow_call:
+    inputs:
+      scan-type:
+        description: "Scan type: 'config' (repo/IaC) or 'image' (docker image)"
+        type: string
+        default: "config"
+      image-ref:
+        description: "Docker image to scan (only required when scan-type is 'image')"
+        type: string
+        default: ""
+      severity:
+        description: "Severity levels to report (comma-separated)"
+        type: string
+        default: "CRITICAL,HIGH"
+      exit-code:
+        description: "Exit code when vulnerabilities found (0=continue, 1=fail)"
+        type: string
+        default: "0"
+      output-file:
+        description: "SARIF output filename"
+        type: string
+        default: "trivy-results.sarif"
+      timeout:
+        description: "Scan timeout"
+        type: string
+        default: "10m0s"
+
+permissions:
+  contents: read
+
+jobs:
+  trivy-scan:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@8d3c67de8e2fe68ef647c8db1e6a09f647780f40 # v2.19.0
+        with:
+          egress-policy: audit
+
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Run Trivy vulnerability scanner (config/IaC)
+        if: inputs.scan-type == 'config'
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          scan-type: "config"
+          exit-code: ${{ inputs.exit-code }}
+          hide-progress: false
+          format: "sarif"
+          output: ${{ inputs.output-file }}
+          severity: ${{ inputs.severity }}
+          timeout: ${{ inputs.timeout }}
+
+      - name: Run Trivy vulnerability scanner (docker image)
+        if: inputs.scan-type == 'image'
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          image-ref: ${{ inputs.image-ref }}
+          format: "sarif"
+          output: ${{ inputs.output-file }}
+          exit-code: ${{ inputs.exit-code }}
+          severity: ${{ inputs.severity }}
+          timeout: ${{ inputs.timeout }}
+          vuln-type: "os,library"
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@95e58e9a2cdfd71adc6e0353d5c52f41a045d225 # v4.35.2
+        if: always()
+        with:
+          sarif_file: ${{ inputs.output-file }}
