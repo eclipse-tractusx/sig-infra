@@ -1,0 +1,100 @@
+# #############################################################################
+# Copyright (c) 2026 Contributors to the Eclipse Foundation
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License, Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0.
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+# #############################################################################
+
+name: "zizmor Central Security Scan (Nightly)"
+
+# Runs nightly against ALL non-archived eclipse-tractusx repositories.
+# No changes required in individual repositories.
+#
+# IMPORTANT - where results land:
+#   SARIF is uploaded to THIS repository's (sig-infra) GitHub Code Scanning tab,
+#   NOT to each individual scanned repository's Security tab.
+#   See: https://github.com/eclipse-tractusx/sig-infra/issues/569
+#
+# To view findings: sig-infra -> Security -> Code Scanning
+
+on:
+  schedule:
+    - cron: "0 3 * * *"  # 03:00 UTC daily
+  workflow_dispatch:      # allow manual trigger at any time
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  zizmor-org-scan:
+    name: Scan all eclipse-tractusx repositories
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@8d3c67de8e2fe68ef647c8db1e6a09f647780f40 # v2.19.0
+        with:
+          egress-policy: audit
+
+      - name: Install zizmor
+        # Pinned to exact version - update via PR when new releases are available
+        run: pip install zizmor==1.24.1
+
+      - name: Discover non-archived eclipse-tractusx repositories
+        id: discover
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh repo list eclipse-tractusx \
+            --no-archived --limit 300 --json nameWithOwner \
+            -q '.[].nameWithOwner' > repos.txt
+
+          REPO_COUNT=$(wc -l < repos.txt | tr -d ' ')
+          echo "Discovered ${REPO_COUNT} non-archived repositories in eclipse-tractusx"
+          cat repos.txt
+
+      - name: Run zizmor on all repositories (online mode)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Pass all repos as space-separated arguments to zizmor in one invocation.
+          # Online mode enables additional checks:
+          #   - impostor-commit: SHA points to fork commit, not canonical repo
+          #   - known-vulnerable-actions: actions with published CVEs
+          REPOS=$(cat repos.txt | tr '\n' ' ')
+
+          # zizmor exits non-zero when findings are present - capture that gracefully
+          zizmor --format sarif --online $REPOS > zizmor-results.sarif || true
+
+          # Print summary to Actions log
+          FINDINGS=$(jq '[.runs[].results[]] | length' zizmor-results.sarif 2>/dev/null || echo "unknown")
+          echo "=========================================="
+          echo " zizmor scan complete"
+          echo " Total findings across all repositories: ${FINDINGS}"
+          echo "=========================================="
+          echo "Results uploaded to sig-infra Security -> Code Scanning"
+
+      - name: Upload SARIF to GitHub Code Scanning
+        # Uploads to sig-infra's Security tab (NOT to individual repo tabs).
+        # This is by design for a central org-level scan. See issue #569 for context.
+        if: always()
+        uses: github/codeql-action/upload-sarif@95e58e9a2cdfd71adc6e0353d5c52f41a045d225 # v4.35.2
+        with:
+          sarif_file: zizmor-results.sarif
+          category: zizmor-org-scan
