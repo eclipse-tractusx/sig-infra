@@ -69,18 +69,18 @@ jobs:
           echo "Discovered ${REPO_COUNT} non-archived repositories in eclipse-tractusx"
           cat repos.txt
 
-      - name: Run zizmor on all repositories (online mode)
+      - name: Run zizmor on all repositories
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Pass all repos as space-separated arguments to zizmor in one invocation.
-          # Online mode enables additional checks:
+          # Online audits are enabled by default and include checks like:
           #   - impostor-commit: SHA points to fork commit, not canonical repo
           #   - known-vulnerable-actions: actions with published CVEs
           REPOS=$(cat repos.txt | tr '\n' ' ')
 
           # zizmor exits non-zero when findings are present - capture that gracefully
-          zizmor --format sarif --online $REPOS > zizmor-results.sarif || true
+          zizmor --format sarif $REPOS > zizmor-results.sarif || true
 
           # Print summary to Actions log
           FINDINGS=$(jq '[.runs[].results[]] | length' zizmor-results.sarif 2>/dev/null || echo "unknown")
