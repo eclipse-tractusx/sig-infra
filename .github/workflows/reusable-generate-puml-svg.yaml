@@ -34,16 +34,16 @@ jobs:
       puml-files: ${{ steps.generate.generate.puml_files }}
     steps:
       - name: checkout source repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Generate PlantUML Diagrams
         id: generate
-        uses: rotaract/plantuml-action@v1.3.0
+        uses: rotaract/plantuml-action@3eb86e193fd5b03e72f49f49bdecf4d2dbf46944 # v1.3.0
         with:
           format: svg
           pattern: "**/*.puml"
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: artifacts
           path: "**/*.svg"
