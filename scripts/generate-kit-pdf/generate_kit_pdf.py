@@ -290,9 +290,9 @@ def generate_pdf(kit_template_path, output_path):
 
 def main():
     """Main function."""
-    # Get the repository root (assuming script is in scripts/ directory)
+    # Get the repository root (assuming script is in scripts/generate-kit-pdf/ directory)
     script_dir = Path(__file__).parent
-    repo_root = script_dir.parent
+    repo_root = script_dir.parent.parent
     
     # Path to kit-template directory
     kit_template_path = repo_root / "docs-kits" / "kit-template"
