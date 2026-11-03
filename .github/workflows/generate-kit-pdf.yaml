@@ -24,12 +24,12 @@ on:
   push:
     paths:
       - 'docs-kits/kit-template/**'
-      - 'scripts/generate_kit_pdf.py'
+      - 'scripts/generate-kit-pdf/**'
       - '.github/workflows/generate-kit-pdf.yaml'
   pull_request:
     paths:
       - 'docs-kits/kit-template/**'
-      - 'scripts/generate_kit_pdf.py'
+      - 'scripts/generate-kit-pdf/**'
       - '.github/workflows/generate-kit-pdf.yaml'
   workflow_dispatch:
 
@@ -63,7 +63,7 @@ jobs:
       
       - name: Generate PDF
         run: |
-          python scripts/generate_kit_pdf.py
+          python scripts/generate-kit-pdf/generate_kit_pdf.py
       
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
