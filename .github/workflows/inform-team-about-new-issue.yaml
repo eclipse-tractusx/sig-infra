@@ -33,7 +33,7 @@ jobs:
     steps:
       - name: Add comment
         # MIT Licence from https://github.com/peter-evans/create-or-update-comment/blob/main/LICENSE
-        uses: peter-evans/create-or-update-comment@v2.1.1
+        uses: peter-evans/create-or-update-comment@67dcc547d311b736a8e6c5c236542148a47adc3d # v2.1.1
         with:
           issue-number: ${{ github.event.issue.number }}
           # Here you can add you personal style of comment messages and which GitHub-team should be informed
@@ -52,7 +52,7 @@ jobs:
     steps:
       - name: Add comment
         # MIT Licence from https://github.com/peter-evans/create-or-update-comment/blob/main/LICENSE
-        uses: peter-evans/create-or-update-comment@v2.1.1
+        uses: peter-evans/create-or-update-comment@67dcc547d311b736a8e6c5c236542148a47adc3d # v2.1.1
         with:
           issue-number: ${{ github.event.issue.number }}
           # Here you can add you personal style of comment messages
