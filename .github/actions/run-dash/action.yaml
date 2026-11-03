@@ -105,7 +105,7 @@ runs:
       id: rejected-check
       run: |
         rejected=$(grep ' rejected,' ${{ inputs.dependencies_file }} || true)
-        if [[ -n "$restricted" ]]; then
+        if [[ -n "$rejected" ]]; then
           echo "The following dependencies are marked as rejected: $rejected"
           echo "rejected-found=true" >> $GITHUB_OUTPUT
         else
