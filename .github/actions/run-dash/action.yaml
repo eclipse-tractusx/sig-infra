@@ -101,7 +101,7 @@ runs:
         fi
       shell: bash
 
-    - name: Check for restricted dependencies
+    - name: Check for rejected dependencies
       id: rejected-check
       run: |
         rejected=$(grep ' rejected,' ${{ inputs.dependencies_file }} || true)
