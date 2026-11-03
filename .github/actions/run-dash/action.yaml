@@ -101,11 +101,11 @@ runs:
         fi
       shell: bash
 
-    - name: Check for restricted dependencies
+    - name: Check for rejected dependencies
       id: rejected-check
       run: |
         rejected=$(grep ' rejected,' ${{ inputs.dependencies_file }} || true)
-        if [[ -n "$restricted" ]]; then
+        if [[ -n "$rejected" ]]; then
           echo "The following dependencies are marked as rejected: $rejected"
           echo "rejected-found=true" >> $GITHUB_OUTPUT
         else
