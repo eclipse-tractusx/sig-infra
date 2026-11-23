@@ -38,7 +38,7 @@ jobs:
 
       - name: Generate PlantUML Diagrams
         id: generate
-        uses: rotaract/plantuml-action@3eb86e193fd5b03e72f49f49bdecf4d2dbf46944 # v1.3.0
+        uses: rotaract/plantuml-action@bed267aaa2ecc6e63eb8077f92293da71423af40 # v1.2026.3
         with:
           format: svg
           pattern: "**/*.puml"
